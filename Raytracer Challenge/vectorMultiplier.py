@@ -105,7 +105,11 @@ class Matrix:
         self.matrix = matrix
 
     def identity(self):
-        identityMatrix = Matrix([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+        identityMatrix = Matrix([
+            [1, 0, 0, 0], 
+            [0, 1, 0, 0], 
+            [0, 0, 1, 0], 
+            [0, 0, 0, 1]])
         return(self * identityMatrix)
 
     def transpose(self):
