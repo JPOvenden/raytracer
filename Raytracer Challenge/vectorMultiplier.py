@@ -33,7 +33,6 @@ class Tuple:
                      self.y / other,
                      self.z / other,
                      self.w / other)
-    #the below methods are called as x.normalize() and x.magnitude()
 
     def magnitude(self):
         return (self.x**2 + self.y**2 + self.z**2 + self.w**2) ** 0.5
@@ -61,8 +60,6 @@ class Tuple:
 
     def __str__(self):
         return f"x: {self.x}, y: {self.y}, z: {self.z}, w: {self.w}"
-        
-                     
 
 class Vector(Tuple):
     def __init__(self, x, y, z, w=0.0):
@@ -91,7 +88,6 @@ class Color(Tuple):
         if isinstance(other, Color):
             return Color(self.x * other.x, self.y * other.y, self.z * other.z)
         return super().__mul__(other)
-    
         
 class Point(Tuple):
     def __init__(self, x, y, z, w=1.0):
@@ -181,6 +177,7 @@ class Matrix:
                 m[row][col] = self.cofactor(row, col) / d
         m = m.transpose()
         return m
+
 #######Maybe move this section to separate classes
     def translation(x, y, z):
         return Matrix([
@@ -201,7 +198,7 @@ class Matrix:
             [0, 0, 0, 1]])
 
 ##################################################
-
+    
     def __getitem__(self, index):
         return self.matrix[index]
 
@@ -219,8 +216,10 @@ class Matrix:
 
 
 class Rotate:
-    e = 2.718281828459045  # Static value of Euler's number
-
+    #Static value of Euler's number, trying to avoid imports, 
+    #in theory this could be calculated but would require some overhead.
+    e = 2.718281828459045
+    
     @staticmethod
     def my_cos(x):
         return (Rotate.e**(x * 1j)).real
