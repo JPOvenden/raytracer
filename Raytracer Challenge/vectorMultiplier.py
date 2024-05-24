@@ -217,7 +217,8 @@ class Matrix:
 
 class Rotate:
     #Static value of Euler's number, trying to avoid imports, 
-    #in theory this could be calculated but would require some overhead.
+    #in theory this could be calculated to higher precision but would require extra overhead.
+    #it may require a revisit if the end result is not good.
     e = 2.718281828459045
     
     @staticmethod
