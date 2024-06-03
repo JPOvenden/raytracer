@@ -16,13 +16,13 @@ def tick(world, projectile):
     return Projectile(position, velocity)
 
 start = Point(0, 1, 0)
-vel = Vector(1, 1.8, 0).normalize() * 11.25
-p = Projectile(start, vel)
+velocity = Vector(1, 1.8, 0).normalize() * 11.25
+projectile = Projectile(start, vel)
 gravity = Vector(0, -0.1, 0)
-w = World(gravity)
-t = 0
+world = World(gravity)
+tick = 0
 
 while p.position.y >= 0:
-    print(f"Tick {t}: Position {p.position}")
-    p = tick(w, p)
-    t += 1
+    print(f"Tick {tick}: Position {projectile.position}")
+    projectile = tick(w, p)
+    tick += 1
