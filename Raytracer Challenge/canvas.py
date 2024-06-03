@@ -22,12 +22,13 @@ class Canvas:
             for row in self.grid:
                 for elem in row:
                     ppm_file.write(f'{elem.x} {elem.y} {elem.z}\n')
+x = 800
+y = 600
+canvas = Canvas(x, y)
+bleed = 100      
+for pixelX in range(bleed, x - bleed):
+    for pixel Y in range(bleed, y - bleed):
+        canvas.write_pixel(s, b, Color(255, 255, 255))
 
-v = Canvas(800, 600)
-g = 100      
-for s in range(g, 700):
-    for b in range(g, 500):
-        v.write_pixel(s, b, Color(255, 255, 255))
-
-v.to_file('canvas.ppm')
+canvas.to_file('canvas.ppm')
 
